@@ -66,7 +66,7 @@
       <div class="product-display">
     <div class="product-container">
       <div class="product-image">    
-        <img v-bind:src="image">
+        <img :src="image">
       </div>
       <div class="product-info">
         <h1>{{ title }}</h1>
@@ -79,16 +79,16 @@
         <div 
           v-for="(variant, index) in variants" 
           :key="variant.id"
-          @mouseover="updateVariant(index)"
           class="color-circle"
           :style="{ backgroundColor: variant.color }"
+          @mouseover="updateVariant(index)"
         >
         </div>
         <button
           class="button" 
           :class="{ disabledButton: !inStock }"
           :disabled="!inStock"
-          v-on:click="addToCart"
+          @click="addToCart"
         >
           Add to cart
         </button>
